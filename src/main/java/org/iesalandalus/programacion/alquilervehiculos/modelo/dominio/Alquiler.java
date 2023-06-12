@@ -7,14 +7,10 @@ import java.util.Objects;
 
 import javax.naming.OperationNotSupportedException;
 
-/**
- * @author Yasin
- *
- */
 
 public class Alquiler {
 
-	static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd\\MM\\yyyy");
+	static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private static final int PRECIO_DIA = 20;
 
 	private LocalDate fechaAlquiler;
@@ -80,8 +76,7 @@ public class Alquiler {
 			throw new IllegalArgumentException("ERROR: La fecha de devolución no puede ser futura.");
 		}
 		if (fechaDevolucion.isBefore(fechaAlquiler) || fechaDevolucion.isEqual(fechaAlquiler)) {
-			throw new IllegalArgumentException(
-					"ERROR: La fecha de devolución debe ser posterior a la fecha de alquiler.");
+			throw new IllegalArgumentException("ERROR: La fecha de devolución debe ser posterior a la fecha de alquiler.");
 		}
 		this.fechaDevolucion = fechaDevolucion;
 	}

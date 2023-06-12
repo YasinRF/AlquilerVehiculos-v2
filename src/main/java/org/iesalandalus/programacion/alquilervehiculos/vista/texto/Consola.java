@@ -21,23 +21,20 @@ public class Consola {
 	private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern(PATRON_FECHA);
 
 	private Consola() {
-
 	}
 
 	public static void mostrarCabecera(String mensaje) {
-		StringBuilder subrayado = new StringBuilder(mensaje.length());
+		System.out.println(mensaje);
 		for (int i = 0; i < mensaje.length(); i++) {
-			subrayado.append("-");
+			System.out.print("-");
 		}
-		System.out.printf("%s  %n", mensaje);
-		System.out.print(subrayado);
+		System.out.println();
 	}
 
 	public static void mostrarMenuAcciones() {
-		mostrarCabecera("Vamos a modelar la gestión de un negocio de alquiler de vehículos:");
-		System.out.printf("%n");
+		mostrarCabecera("Menu para la gestión en Alquiler de Vehiculos: ");
 		for (Accion accion : Accion.values()) {
-			System.out.printf("%s%n", accion);
+			System.out.println(accion);
 		}
 	}
 
@@ -45,10 +42,10 @@ public class Consola {
 		Accion accion = null;
 		do {
 			try {
-				int entero = leerEntero("Introduce la opción:");
-				accion = Accion.get(entero);
+				int numEntero = leerEntero("Introduce una opción correcta: ");
+				accion = Accion.get(numEntero);
 			} catch (OperationNotSupportedException e) {
-				System.out.printf("%s %n", e.getMessage());
+				System.out.println(e.getMessage());
 				accion = null;
 			}
 		} while (accion == null);
@@ -66,18 +63,18 @@ public class Consola {
 	}
 
 	private static LocalDate leerFecha(String mensaje, String patron) {
-		LocalDate fecha = null;
+		LocalDate fechaDeterminada = null;
 		System.out.print(mensaje);
 		try {
 			if (PATRON_MES.equals(patron)) {
-				fecha = LocalDate.parse("01/" + Entrada.cadena(), FORMATO_FECHA);
+				fechaDeterminada = LocalDate.parse("01/" + Entrada.cadena(), FORMATO_FECHA);
 			} else {
-				fecha = LocalDate.parse(Entrada.cadena(), FORMATO_FECHA);
+				fechaDeterminada = LocalDate.parse(Entrada.cadena(), FORMATO_FECHA);
 			}
 		} catch (DateTimeException e) {
-			System.out.printf("%s", e.getMessage());
+			System.out.println(e.getMessage());
 		}
-		return fecha;
+		return fechaDeterminada;
 	}
 
 	public static Cliente leerCliente() {
@@ -88,16 +85,16 @@ public class Consola {
 	}
 
 	public static Cliente leerClienteDni() {
-		String dni = leerCadena("Introduce el dni:");
-		return Cliente.getClienteConDni(dni);
+		String dniCliente = leerCadena("Introduce el DNI:");
+		return Cliente.getClienteConDni(dniCliente);
 	}
 
 	public static String leerNombre() {
-		return leerCadena("Introduce el nombre:");
+		return leerCadena("Introduce el Nombre:");
 	}
 
 	public static String leerTelefono() {
-		return leerCadena("Introduce el telefono:");
+		return leerCadena("Introduce el Telefono:");
 	}
 
 	public static Vehiculo leerVehiculo() {
@@ -106,7 +103,7 @@ public class Consola {
 	}
 
 	private static void mostrarMenuTiposVehiculos() {
-		mostrarCabecera("Los Tipos de Vehiculos que hay son: ");
+		mostrarCabecera("Los tipos de Vehiculos existentes son: ");
 		System.out.printf("%n 0-%s%n 1-%s%n 2-%s%n", TipoVehiculo.TURISMO, TipoVehiculo.AUTOBUS, TipoVehiculo.FURGONETA);
 	}
 
@@ -114,11 +111,11 @@ public class Consola {
 		TipoVehiculo tipoVehiculo = null;
 		do {
 			try {
-				int entero = leerEntero("Elige el Tipo de Vehiculo: ");
-				System.out.printf("%n");
+				int entero = leerEntero("Elige el tipo de Vehiculo que desea: ");
+				System.out.println();
 				tipoVehiculo = TipoVehiculo.get(entero);
 			} catch (OperationNotSupportedException e) {
-				System.out.printf("%s %n", e.getMessage());
+				System.out.println(e.getMessage());
 				tipoVehiculo = null;
 			}
 		} while (tipoVehiculo == null);
@@ -134,9 +131,9 @@ public class Consola {
 		if (tipoVehiculo == TipoVehiculo.TURISMO) {
 			vehiculo = new Turismo(marca, modelo, leerEntero("Indroduce la cilindrada:"), matricula);
 		} else if (tipoVehiculo == TipoVehiculo.AUTOBUS) {
-			vehiculo = new Autobus(marca, modelo, leerEntero("Introduce las plazas: "), matricula);
+			vehiculo = new Autobus(marca, modelo, leerEntero("Introduce las plazas:"), matricula);
 		} else if (tipoVehiculo == TipoVehiculo.FURGONETA) {
-			vehiculo = new Furgoneta(marca, modelo, leerEntero("Introduce los pma: "),
+			vehiculo = new Furgoneta(marca, modelo, leerEntero("Introduce los pma:"),
 					leerEntero("Introduce las plazas: "), matricula);
 		}
 		return vehiculo;
@@ -151,15 +148,15 @@ public class Consola {
 	public static Alquiler leerAlquiler() {
 		Cliente cliente = leerClienteDni();
 		Vehiculo vehiculo = leerVehiculoMatricula();
-		LocalDate fechaAlquiler = leerFecha("Introduce la fecha de Alquiler:", PATRON_FECHA);
+		LocalDate fechaAlquiler = leerFecha("Introduce la fecha de Alquiler con el formato: ", PATRON_FECHA);
 		return new Alquiler(cliente, vehiculo, fechaAlquiler);
 	}
 
 	public static LocalDate leerFechaDevolucion() {
-		return leerFecha("Introduce la fecha de Devolucion:", PATRON_FECHA);
+		return leerFecha("Introduce la fecha de Devolucion con el formato: ", PATRON_FECHA);
 	}
 
 	public static LocalDate leerMes() {
-		return leerFecha("Introduce el mes y el año :", PATRON_MES);
+		return leerFecha("Introduce el mes y el año con el formato :", PATRON_MES);
 	}
 }

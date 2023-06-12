@@ -25,19 +25,19 @@ public class VistaTexto extends Vista {
 			Consola.mostrarMenuAcciones();
 			accion = Consola.elegirAccion();
 			accion.ejecutar();
-			System.out.printf("%n%n");
+			System.out.println();
 		} while (accion != Accion.SALIR);
 	}
 
 	public void terminar() {
-		System.out.print("Adioss!!");
+		System.out.print("Hasta la próxima!!!");
 		System.exit(0);
 	}
 
 	public void insertarCliente() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 1-Insertar Cliente");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 1 -> Insertar Cliente");
+			System.out.println();
 			getControlador().insertar(Consola.leerCliente());
 			System.out.print("El cliente se ha insertado correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
@@ -47,8 +47,8 @@ public class VistaTexto extends Vista {
 
 	public void insertarVehiculo() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 2-Insertar Vehiculo");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 2 -> Insertar Vehículo");
+			System.out.println();
 			getControlador().insertar(Consola.leerVehiculo());
 			System.out.print("El vehiculo se ha insertado correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
@@ -58,8 +58,8 @@ public class VistaTexto extends Vista {
 
 	public void insertarAlquiler() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 3-Insertar Alquiler");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 3 -> Insertar Alquiler");
+			System.out.println();
 			getControlador().insertar(Consola.leerAlquiler());
 			System.out.print("El Alquiler se ha insertado correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
@@ -69,8 +69,8 @@ public class VistaTexto extends Vista {
 
 	public void buscarCliente() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 4-Buscar Cliente");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 4 -> Buscar Cliente");
+			System.out.println();
 			System.out.print(getControlador().buscar(Consola.leerClienteDni()));
 		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
@@ -79,8 +79,8 @@ public class VistaTexto extends Vista {
 
 	public void buscarVehiculo() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 5-Buscar Vehiculo");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 5 -> Buscar Vehículo");
+			System.out.println();
 			System.out.print(getControlador().buscar(Consola.leerVehiculoMatricula()));
 		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
@@ -90,8 +90,8 @@ public class VistaTexto extends Vista {
 
 	public void buscarAlquiler() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 6-Buscar Alquiler");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 6 -> Buscar Alquiler");
+			System.out.println();
 			System.out.print(getControlador().buscar(Consola.leerAlquiler()));
 		} catch (IllegalArgumentException | NullPointerException e) {
 			System.out.print(e.getMessage());
@@ -100,8 +100,8 @@ public class VistaTexto extends Vista {
 
 	public void modificarCliente() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 7-Modificar Cliente");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 7 -> Modificar Cliente");
+			System.out.println();
 			getControlador().modificar(Consola.leerClienteDni(), Consola.leerNombre(), Consola.leerTelefono());
 			System.out.print("El cliente se ha modificado correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
@@ -111,8 +111,8 @@ public class VistaTexto extends Vista {
 
 	public void devolverAlquilerCliente() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 8-Devolver Alquiler de un Cliente");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 8 -> Devolver Alquiler");
+			System.out.println();
 			getControlador().devolver(Consola.leerClienteDni(), Consola.leerFechaDevolucion());
 			System.out.print("El Alquiler del cliente se ha devuelto correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
@@ -122,8 +122,8 @@ public class VistaTexto extends Vista {
 
 	public void devolverAlquilerVehiculo() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 9-Devolver Alquiler de un Vehiculo");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 9 -> Devolver Alquiler de un Vehículo");
+			System.out.println();
 			getControlador().devolver(Consola.leerVehiculoMatricula(), Consola.leerFechaDevolucion());
 			System.out.print("El Alquiler del vehiculo se ha devuelto correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
@@ -133,8 +133,8 @@ public class VistaTexto extends Vista {
 
 	public void borrarCliente() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 10-Borrar Cliente");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 10 -> Borrar Cliente");
+			System.out.println();
 			getControlador().borrar(Consola.leerClienteDni());
 			System.out.print("El cliente se ha borrado correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
@@ -144,8 +144,8 @@ public class VistaTexto extends Vista {
 
 	public void borrarVehiculo() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 11-Borrar Vehiculo");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 11 -> Borrar Vehículo");
+			System.out.println();
 			getControlador().borrar(Consola.leerVehiculoMatricula());
 			System.out.print("El vehiculo se ha borrado correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
@@ -155,8 +155,8 @@ public class VistaTexto extends Vista {
 
 	public void borrarAlquiler() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 12-Borrar Alquiler");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 12 -> Borrar Alquiler");
+			System.out.println();
 			getControlador().borrar(Consola.leerAlquiler());
 			System.out.print("El Alquiler se ha borrado correctamente.");
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
@@ -165,16 +165,16 @@ public class VistaTexto extends Vista {
 	}
 
 	public void listarClientes() {
-		Consola.mostrarCabecera("Estamos en la opción --> 13-Listar Clientes");
-		System.out.printf("%n");
+		Consola.mostrarCabecera("Opcion 13 -> Listar Clientes");
+		System.out.println();
 		List<Cliente> listaClientes = getControlador().getClientes();
 		listaClientes.sort(Comparator.comparing(Cliente::getNombre).thenComparing(Cliente::getDni));
 		System.out.print(listaClientes.isEmpty() ? "No hay clientes en la lista" : listaClientes);
 	}
 
 	public void listarVehiculos() {
-		Consola.mostrarCabecera("Estamos en la opción --> 14-Listar Vehiculos");
-		System.out.printf("%n");
+		Consola.mostrarCabecera("Opcion 14 -> Listar Vehículos");
+		System.out.println();
 		List<Vehiculo> listaVehiculos = getControlador().getVehiculos();
 		listaVehiculos.sort(Comparator.comparing(Vehiculo::getMarca).thenComparing(Vehiculo::getModelo)
 				.thenComparing(Vehiculo::getMatricula));
@@ -182,8 +182,8 @@ public class VistaTexto extends Vista {
 	}
 
 	public void listarAlquileres() {
-		Consola.mostrarCabecera("Estamos en la opción --> 15-Listar Alquileres");
-		System.out.printf("%n");
+		Consola.mostrarCabecera("Opcion 15 -> Listar Alquileres");
+		System.out.println();
 		List<Alquiler> listaAlquileres = getControlador().getAlquileres();
 		Comparator<Cliente> comparadorCliente = Comparator.comparing(Cliente::getNombre).thenComparing(Cliente::getDni);
 		listaAlquileres.sort(Comparator.comparing(Alquiler::getFechaAlquiler).thenComparing(Alquiler::getCliente,
@@ -194,8 +194,8 @@ public class VistaTexto extends Vista {
 	public void listarAlquileresCliente() {
 
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 16-Listar los Alquileres de un Cliente");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 16 -> Listar los Alquileres de un Cliente");
+			System.out.println();
 			List<Alquiler> listaAlquileresCliente = getControlador().getAlquileres(Consola.leerClienteDni());
 			Comparator<Cliente> comparadorCliente = Comparator.comparing(Cliente::getNombre)
 					.thenComparing(Cliente::getDni);
@@ -210,8 +210,8 @@ public class VistaTexto extends Vista {
 
 	public void listarAlquileresVehiculo() {
 		try {
-			Consola.mostrarCabecera("Estamos en la opción --> 17-Listar los Alquileres de un Vehiculo");
-			System.out.printf("%n");
+			Consola.mostrarCabecera("Opcion 17 -> Listar los Alquileres de un Vehiculo");
+			System.out.println();
 			List<Alquiler> listaAlquileresVehiculo = getControlador().getAlquileres(Consola.leerVehiculoMatricula());
 			Comparator<Vehiculo> comparadorVehiculo = Comparator.comparing(Vehiculo::getMarca)
 					.thenComparing(Vehiculo::getModelo).thenComparing(Vehiculo::getMatricula);
@@ -225,14 +225,14 @@ public class VistaTexto extends Vista {
 	}
 
 	public void mostrarEstadisticasMensualesTipoVehiculo() {
-		Consola.mostrarCabecera("Estamos en la opción --> 18-Mostrar Estadísticas Mensuales del Vehículo");
-		System.out.printf("%n");
-		LocalDate fechaMes = Consola.leerMes();
+		Consola.mostrarCabecera("Opcion 18 -> Mostrar estadísticas mensuales del Vehículo");
+		System.out.println();
+		LocalDate fechdDelMes = Consola.leerMes();
 
 		Map<TipoVehiculo, Integer> ocurrencias = inicializarEstadisticas();
 		for (Alquiler alquiler : getControlador().getAlquileres()) {
-			if ((alquiler.getFechaAlquiler().getYear() == fechaMes.getYear())
-					&& (alquiler.getFechaAlquiler().getMonth().equals(fechaMes.getMonth()))) {
+			if ((alquiler.getFechaAlquiler().getYear() == fechdDelMes.getYear())
+					&& (alquiler.getFechaAlquiler().getMonth().equals(fechdDelMes.getMonth()))) {
 				ocurrencias.put(TipoVehiculo.get(alquiler.getVehiculo()),
 						ocurrencias.get(TipoVehiculo.get(alquiler.getVehiculo())) + 1);
 			}

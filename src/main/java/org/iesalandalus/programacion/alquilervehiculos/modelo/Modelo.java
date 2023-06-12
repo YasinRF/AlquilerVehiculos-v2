@@ -60,7 +60,7 @@ public abstract class Modelo {
 		alquileres.terminar();
 	}
 	
-	//Hacemos los métodos abstract
+	//HACEMOS LOS MÉTODOS ABSTRACT
 	
 	public abstract void insertar(Cliente cliente) throws OperationNotSupportedException;
 

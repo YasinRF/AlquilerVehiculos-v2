@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Cliente {
 	
 	private static final String ER_NOMBRE = "^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+((\\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*)";
-	private static final String ER_DNI = "^\\d{8}[A-Z]$";
+	private static final String ER_DNI = "^\\d{8}[A-Z]";
 	private static final  String ER_TELEFONO = "^[679]\\d{8}$"; 
 	
 	
@@ -92,11 +92,11 @@ public class Cliente {
 	public static Cliente getClienteConDni(String dni) {
 		return new Cliente ("Bob Esponja", dni, "950112233");
 	}
-	
 
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(dni, nombre, telefono);
+		return Objects.hash(dni);
 	}
 
 	@Override
@@ -108,8 +108,7 @@ public class Cliente {
 		if (getClass() != obj.getClass())
 			return false;
 		Cliente other = (Cliente) obj;
-		return Objects.equals(dni, other.dni) && Objects.equals(nombre, other.nombre)
-				&& Objects.equals(telefono, other.telefono);
+		return Objects.equals(dni, other.dni);
 	}
 
 	@Override

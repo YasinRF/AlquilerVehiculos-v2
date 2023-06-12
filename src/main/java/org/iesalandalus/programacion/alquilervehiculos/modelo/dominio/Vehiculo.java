@@ -4,11 +4,14 @@ import java.util.Objects;
 
 public abstract class Vehiculo {
 
-	private static final String ER_MARCA = "^[A-Z][a-z]+|^[A-Z][a-z]+\\s[A-Z][a-z]+|^[A-Z]+|^[A-Z][a-z]+[A-Z][a-z]+|^[A-Z][a-z]+-[A-Z][a-z]+";
-	private static final String ER_MATRICULA = "^/d{4}[BCDFGHJKLMNPRSTVWXYZ]{3}";
+	private static final String ER_MARCA = "([A-Z][a-z]+([ -]?[A-Z][a-z]+)?)|[A-Z]+";
+	private static final String ER_MATRICULA = "^\\d{4}([BCDFGHJKLMNPRSTVWXYZ]){3}";
+	
 	private String marca;
 	private String modelo;
 	private String matricula;
+	
+	// CREAMOS LOS CONSTRUCTORES Y EL CONSTRUCTOR COPIA
 
 	protected Vehiculo(String marca, String modelo, String matricula) {
 		setMarca(marca);
@@ -45,6 +48,8 @@ public abstract class Vehiculo {
 	public static Vehiculo getVehiculoConMatricula(String matricula) {
 		return new Turismo("KIA", "CEED", 250, matricula);
 	}
+	
+	// GETTERS Y SETTERS
 
 	public String getMarca() {
 		return marca;
@@ -87,7 +92,8 @@ public abstract class Vehiculo {
 		}
 		this.matricula = matricula;
 	}
-
+	
+	// CREAMOS EL HASHCODE
 
 	@Override
 	public int hashCode() {

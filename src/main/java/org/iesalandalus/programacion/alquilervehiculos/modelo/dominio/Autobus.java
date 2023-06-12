@@ -16,9 +16,6 @@ public class Autobus extends Vehiculo{
 	}
 	public Autobus (Autobus autobus) {
 		super(autobus);
-		if(autobus == null) {
-			throw new NullPointerException("ERROR: No es posible copiar un vehículo nulo.");
-		}
 		plazas = autobus.getPlazas();
 	}
 	
@@ -40,12 +37,11 @@ public class Autobus extends Vehiculo{
 	
 	@Override
 	public int getFactorPrecio() {
-		int precioAutobus = plazas * FACTOR_FLAZAS;
-		return precioAutobus;
+		return plazas * FACTOR_FLAZAS;
 	}
 	@Override
 	public String toString() {
-		return String.format("%s %s (%s plazas) - %s",getMarca(),getModelo(), plazas, getMatricula());
+		return String.format("%s %s (%d plazas) - %s",getMarca(),getModelo(), plazas, getMatricula());
 	}
 	
 }

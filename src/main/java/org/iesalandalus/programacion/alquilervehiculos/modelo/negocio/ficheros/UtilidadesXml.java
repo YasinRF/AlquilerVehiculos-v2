@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.memoria;
+package org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.ficheros;
 
 import java.io.File;
 import java.io.FileWriter;

@@ -15,6 +15,7 @@ import javax.naming.OperationNotSupportedException;
 
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IVehiculos;
+import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.ficheros.Vehiculos;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
